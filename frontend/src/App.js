@@ -2,6 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom'
 
 import Auth from './user/pages/Auth'
+import MainNavigation from './shared/components/Navigation/MainNavigation'
 import { AuthContext } from './shared/context/auth-context'
 import { useAuth } from './shared/hooks/auth-hook'
 function App() {
@@ -12,7 +13,7 @@ function App() {
     routes=(
     <Switch>
       <Route path='/' exact>
-        <h1>Logged in</h1>
+
       </Route>
       <Redirect to='/'/>
     </Switch>
@@ -36,6 +37,7 @@ function App() {
     logout:logout
   }}>
     <Router>
+      <MainNavigation/>
       <main>{routes}</main>
     </Router>
   </AuthContext.Provider>

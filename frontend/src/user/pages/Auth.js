@@ -64,7 +64,7 @@ const Auth = () => {
     if (isLoginMode) {
       try {
         const responseData = await sendRequest(
-          'http://localhost:5000/api/users/login',
+          'http://192.168.1.3:5000/api/users/login',
           'POST',
           JSON.stringify({
             email: formState.inputs.email.value,
@@ -83,7 +83,7 @@ const Auth = () => {
         formData.append('name', formState.inputs.name.value)
         formData.append('password', formState.inputs.password.value)
         const responseData = await sendRequest(
-          'http://localhost:5000/api/users/signup',
+          'http://192.168.1.3:5000/api/users/signup',
           'POST',
           JSON.stringify({
             name: formState.inputs.name.value,
@@ -105,7 +105,7 @@ const Auth = () => {
       <ErrorModal error={error} onClear={clearError} />
       <Card className='authentication'>
         {isLoading && <LoadingSpinner asOverlay />}
-        <h2>Login Required</h2>
+        <h2>Authentication Required</h2>
         <hr />
         <form onSubmit={authSubmitHandler}>
           {!isLoginMode && (

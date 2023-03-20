@@ -14,7 +14,7 @@
   display: block;
   width: 3rem;
   height: 2.5px;
-  background: white;
+  background: #F7FFF7;
 }
 
 .main-navigation__title {
@@ -23,7 +23,7 @@
 
 .main-navigation__title a {
   text-decoration: none;
-  color: white;
+  color: #F7FFF7;
 }
 
 .main-navigation__header-nav {
