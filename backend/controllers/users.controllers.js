@@ -5,66 +5,66 @@ const jwt = require('jsonwebtoken')
 const HttpError = require('../models/http-error')
 const User = require('../models/user.models')
 
-const signup = async (req, res, next) =>{
-  //Field validations
+const signup = async (req, res, next) => {
+  // Field validations
   const errors = validationResult(req)
-  if(!errors.isEmpty()){
+  if (!errors.isEmpty()) {
     return next(new HttpError('Invalid inputs passed, please check your data', 422))
   }
 
-  const {name, email, password} = req.body
+  const { name, email, password } = req.body
 
-  //Unique email validation
+  // Unique email validation
   let existingUser
   try {
-    existingUser = await User.findOne({email:email})
-  }catch(err){
+    existingUser = await User.findOne({ email })
+  } catch (err) {
     return next(new HttpError('Sign up failed, please try again later.', 500))
   }
-  if(existingUser){
+  if (existingUser) {
     return next(new HttpError('User exists already, please login instead.', 422))
   }
 
-  //Password encryption
+  // Password encryption
   let hashedPassword
-  try{
+  try {
     hashedPassword = await bcrypt.hash(password, 10)
-  }catch (err){
+  } catch (err) {
     return next(new HttpError('Sign up failed, please try again later.', 500))
   }
 
-  //New user
+  // New user
   const createUser = new User({
     name, email, password: hashedPassword
   })
   try {
     await createUser.save()
-  }catch (err){
+  } catch (err) {
     return next(new HttpError('Signing up failed, please try again later.', 500))
   }
 
-  //Token generation
+  // Token generation
   let token
-  try{
+  try {
     token = jwt.sign(
 
-      {userId: createUser.id, email: createUser.email},
-        process.env.JWT_KEY,
-      {expiresIn: process.env.JWT_EXPIRATION}
+      { userId: createUser.id, email: createUser.email },
+      process.env.JWT_KEY,
+      { expiresIn: process.env.JWT_EXPIRATION }
 
     )
-  }catch(err){
+  } catch (err) {
     return next(new HttpError('Signing up failed, please try again later.', 500))
   }
 
-  res.status(201).json({userId: createUser.id, email: createUser.email, token: token})
+  res.status(201).json({ userId: createUser.id, email: createUser.email, token })
 }
-const login = async (req, res, next) =>{
+const login = async (req, res, next) => {
   const { email, password } = req.body
   let existingUser
 
   try {
-    existingUser = await User.findOne({ email: email })
+    existingUser = await User.findOne({ email })
   } catch (err) {
     return next(new HttpError('Logging in failed, please try again later.', 500))
   }
@@ -77,7 +77,7 @@ const login = async (req, res, next) =>{
   try {
     isValidPassword = await bcrypt.compare(password, existingUser.password)
   } catch (err) {
-    return next(new HttpError('Could not log you in, please try again later.',500))
+    return next(new HttpError('Could not log you in, please try again later.', 500))
   }
 
   if (!isValidPassword) {
@@ -98,7 +98,7 @@ const login = async (req, res, next) =>{
   res.json({
     userId: existingUser.id,
     email: existingUser.email,
-    token: token
+    token
   })
 }
 

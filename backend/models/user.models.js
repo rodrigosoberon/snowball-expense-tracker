@@ -6,8 +6,9 @@ const uniqueValidator = require('mongoose-unique-validator')
 const userSchema = new Schema({
   name: { type: String, require: true },
   email: { type: String, require: true, unique: true },
-  password: { type: String, require: true, minLength: 6 }
-},{ versionKey: false })
+  password: { type: String, require: true, minLength: 6 },
+  expenses: [{ type: mongoose.Types.ObjectId, required: true, ref: 'Expense' }]
+}, { versionKey: false })
 
 userSchema.plugin(uniqueValidator)
 
