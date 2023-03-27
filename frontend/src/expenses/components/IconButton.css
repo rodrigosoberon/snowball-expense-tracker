@@ -1,0 +1,16 @@
+button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	color: inherit;
+}
+
+button svg {
+	height: 1.5rem;
+	width: 1.5rem;
+	color: inherit;
+}
+
+button svg:hover {
+	color: #ff6b6b;
+}

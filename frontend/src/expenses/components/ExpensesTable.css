@@ -1,0 +1,30 @@
+table {
+	width: 95%;
+	border-collapse: collapse;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+td,
+th {
+	text-align: left;
+	padding: 0.5em;
+}
+
+tr:nth-child(even) {
+	background-color: #1a535c;
+	color: #f7fff7;
+}
+
+td:nth-child(4),
+th:nth-child(4) {
+	text-align: right;
+	padding-right: 2em;
+}
+
+.total-row {
+	background-color: #ff6b6b !important;
+	color: #f7fff7;
+	font-weight: bold;
+	font-size: large;
+}

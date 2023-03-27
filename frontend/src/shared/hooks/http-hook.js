@@ -1,22 +1,22 @@
 import { useState, useCallback, useRef, useEffect } from 'react'
 
 export const useHttpClient = () => {
-	// Manejo de estados
+	// State management
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState()
 	const activeHttpRequests = useRef([])
 
-	// Funcion para hacer peticiones http
+	// Create http requests
 	const sendRequest = useCallback(async (url, method = 'GET', body = null, headers = {}) => {
-		//* El useCallback es para evitar que la funcion se vuelva a crear cada vez que se renderiza el componente
+		// 'useCallback' to prevent execution with every component render
 		setIsLoading(true)
 
-		//* Limpiar peticiones anteriores
+		// Cleanup previous requests
 		const httpAbortCtrl = new AbortController()
 		activeHttpRequests.current.push(httpAbortCtrl)
 
 		try {
-			// Fetch de datos
+			// Data fetching
 			const response = await fetch(url, {
 				method,
 				body,
@@ -29,12 +29,12 @@ export const useHttpClient = () => {
 				reqCtrl => reqCtrl !== httpAbortCtrl
 			)
 
-			// Manejo de errores
+			// Error handling
 			if (!response.ok) {
 				throw new Error(responseData.message)
 			}
 			setIsLoading(false)
-			return responseData // Devolucion de datos
+			return responseData
 		} catch (err) {
 			setError(err.message || 'Something went wrong, please try again.')
 			setIsLoading(false)
@@ -42,18 +42,18 @@ export const useHttpClient = () => {
 		}
 	}, [])
 
-	// Funcion para limpiar el error
+	// Error cleanup
 	const clearError = () => {
 		setError(null)
 	}
 
-	// Limpiar peticiones anteriores
+	// Cleanup previous requests
 	useEffect(() => {
 		return () => {
 			activeHttpRequests.current.forEach(abortCtrl => abortCtrl.abort())
 		}
 	}, [])
 
-	// Devolucion de estados y funciones
+	// Functions and states return
 	return { isLoading, error, sendRequest, clearError }
 }
