@@ -5,9 +5,13 @@ import { AuthContext } from '../../shared/context/auth-context'
 import LoadingSpinner from '../../shared/components/UIElements/LoadingSpinner'
 import ErrorModal from '../../shared/components/UIElements/ErrorModal'
 import ExpensesTable from '../components/ExpensesTable'
+import Modal from '../../shared/components/UIElements/Modal'
+import Button from '../../shared/components/FormElements/Button'
 
 const MonthlyExpenses = () => {
 	const [loadedExpenses, setLoadedExpenses] = useState()
+	const [showConfirmModal, setShowConfirmModal] = useState(false)
+	const [expenseSelected, setExpenseSelected] = useState()
 	const { isLoading, error, sendRequest, clearError } = useHttpClient()
 	const auth = useContext(AuthContext)
 
@@ -23,11 +27,59 @@ const MonthlyExpenses = () => {
 		fetchExpenses()
 	}, [sendRequest, auth])
 
+	const showDeleteWarningHandler = event => {
+		setExpenseSelected(event.currentTarget.id)
+		setShowConfirmModal(true)
+	}
+
+	const cancelDeleteHandler = () => {
+		setShowConfirmModal(false)
+	}
+
+	const expenseDeleteHandler = () => {
+		setLoadedExpenses(prevExpenses =>
+			prevExpenses.filter(expense => expense.id !== expenseSelected)
+		)
+	}
+
+	const confirmDeleteHanlder = async () => {
+		setShowConfirmModal(false)
+		try {
+			await sendRequest(`http://localhost:5000/api/expenses/${expenseSelected}`, 'DELETE', null, {
+				Authorization: 'Bearer ' + auth.token
+			})
+			expenseDeleteHandler()
+		} catch (err) {}
+	}
+
 	return (
 		<>
 			<ErrorModal error={error} onClear={clearError} />
+			<Modal
+				show={showConfirmModal}
+				onCancel={cancelDeleteHandler}
+				header='Confirm delete?'
+				footer={
+					<>
+						<Button inverse onClick={cancelDeleteHandler}>
+							CANCEL
+						</Button>
+						<Button danger onClick={confirmDeleteHanlder}>
+							DELETE
+						</Button>
+					</>
+				}
+			>
+				<p>Do you want to delete the expense?</p>
+			</Modal>
 			{isLoading && <LoadingSpinner asOverlay />}
-			{!isLoading && loadedExpenses && <ExpensesTable expenses={loadedExpenses} curr={'$ '} />}
+			{!isLoading && loadedExpenses && (
+				<ExpensesTable
+					expenses={loadedExpenses}
+					showDeleteWarningHandler={showDeleteWarningHandler}
+					curr={'$ '}
+				/>
+			)}
 		</>
 	)
 }

@@ -5,6 +5,10 @@ import { ReactComponent as Trash } from '../../shared/icons/trash.svg'
 import { ReactComponent as Edit } from '../../shared/icons/edit.svg'
 
 const ExpenseRow = props => {
+	// const clickHandler = () => {
+	// 	alert(`Clicked delete on ${props.description}`)
+	// }
+
 	return (
 		<tr>
 			<td>{props.date}</td>
@@ -15,7 +19,7 @@ const ExpenseRow = props => {
 				<IconButton>
 					<Edit />
 				</IconButton>
-				<IconButton>
+				<IconButton clickHandler={props.showDeleteWarningHandler} expenseId={props.id}>
 					<Trash />
 				</IconButton>
 			</td>

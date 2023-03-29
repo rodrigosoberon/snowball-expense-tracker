@@ -81,6 +81,7 @@ const AddExpense = () => {
 					element='input'
 					type='number'
 					label='Amount'
+					step='.01'
 					validators={[VALIDATOR_REQUIRE()]}
 					errorText='Please enter a valid amount.'
 					onInput={inputHandler}
