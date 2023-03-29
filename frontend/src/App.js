@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Auth from './user/pages/Auth'
 import MainNavigation from './shared/components/Navigation/MainNavigation'
 import MonthlyExpenses from './expenses/pages/MonthlyExpenses'
+import AddExpense from './expenses/pages/AddExpense'
 import { AuthContext } from './shared/context/auth-context'
 import { useAuth } from './shared/hooks/auth-hook'
 
@@ -19,6 +20,9 @@ function App() {
 				</Route>
 				<Route path='/expenses'>
 					<MonthlyExpenses />
+				</Route>
+				<Route path='/add'>
+					<AddExpense />
 				</Route>
 				<Redirect to='/' />
 			</Switch>

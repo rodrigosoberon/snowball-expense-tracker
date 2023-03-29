@@ -28,6 +28,7 @@ const ExpensesTable = props => {
 			<tbody>
 				{props.expenses.map(expense => (
 					<ExpenseRow
+						key={expense.id}
 						date={new Date(expense.timestamp).toLocaleDateString()}
 						description={expense.description}
 						category={expense.category}
