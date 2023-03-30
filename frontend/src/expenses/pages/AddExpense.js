@@ -35,7 +35,7 @@ const AddExpense = () => {
 		event.preventDefault()
 		try {
 			await sendRequest(
-				'http://localhost:5000/api/expenses',
+				'http://192.168.1.3:5000/api/expenses',
 				'POST',
 				JSON.stringify({
 					description: formState.inputs.description.value,
@@ -48,9 +48,7 @@ const AddExpense = () => {
 				}
 			)
 			history.push('/expenses')
-		} catch (err) {
-			console.log(err)
-		}
+		} catch (err) {}
 	}
 
 	return (

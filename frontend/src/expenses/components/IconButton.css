@@ -1,16 +1,19 @@
-button {
+button,
+a {
 	background-color: transparent;
 	border: none;
 	cursor: pointer;
 	color: inherit;
 }
 
-button svg {
+button svg,
+a svg {
 	height: 1.5rem;
 	width: 1.5rem;
 	color: inherit;
 }
 
-button svg:hover {
+button svg:hover,
+a svg:hover {
 	color: #ff6b6b;
 }

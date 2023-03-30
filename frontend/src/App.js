@@ -5,6 +5,7 @@ import Auth from './user/pages/Auth'
 import MainNavigation from './shared/components/Navigation/MainNavigation'
 import MonthlyExpenses from './expenses/pages/MonthlyExpenses'
 import AddExpense from './expenses/pages/AddExpense'
+import UpdateExpense from './expenses/pages/UpdateExpense'
 import { AuthContext } from './shared/context/auth-context'
 import { useAuth } from './shared/hooks/auth-hook'
 
@@ -18,8 +19,11 @@ function App() {
 				<Route path='/' exact>
 					<h1>Main authenticated</h1>
 				</Route>
-				<Route path='/expenses'>
+				<Route path='/expenses' exact>
 					<MonthlyExpenses />
+				</Route>
+				<Route path='/expenses/:expenseId'>
+					<UpdateExpense />
 				</Route>
 				<Route path='/add'>
 					<AddExpense />

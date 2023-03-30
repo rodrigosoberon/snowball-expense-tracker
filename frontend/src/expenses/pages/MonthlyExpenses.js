@@ -23,9 +23,14 @@ const MonthlyExpenses = () => {
 	useEffect(() => {
 		const fetchExpenses = async () => {
 			try {
-				const responseData = await sendRequest('http://localhost:5000/api/expenses', 'GET', null, {
-					Authorization: 'Bearer ' + auth.token
-				})
+				const responseData = await sendRequest(
+					'http://192.168.1.3:5000/api/expenses',
+					'GET',
+					null,
+					{
+						Authorization: 'Bearer ' + auth.token
+					}
+				)
 				setLoadedExpenses(responseData.expenses)
 			} catch (err) {}
 		}
@@ -51,7 +56,7 @@ const MonthlyExpenses = () => {
 		setShowConfirmModal(false)
 		try {
 			await sendRequest(
-				`http://localhost:5000/api/expenses/${expenseSelected.id}`,
+				`http://192.168.1.3:5000/api/expenses/${expenseSelected.id}`,
 				'DELETE',
 				null,
 				{

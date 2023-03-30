@@ -5,9 +5,11 @@ import { ReactComponent as Trash } from '../../shared/icons/trash.svg'
 import { ReactComponent as Edit } from '../../shared/icons/edit.svg'
 
 const ExpenseRow = props => {
-	// const clickHandler = () => {
-	// 	alert(`Clicked delete on ${props.description}`)
-	// }
+	const expense = {
+		description: props.description,
+		category: props.category,
+		amount: props.amount
+	}
 
 	return (
 		<tr>
@@ -16,7 +18,9 @@ const ExpenseRow = props => {
 			<td>{props.category}</td>
 			<td>{props.curr + (Math.round(props.amount * 100) / 100).toFixed(2)}</td>
 			<td>
-				<IconButton>
+				<IconButton
+					to={{ pathname: `/expenses/${props.id}`, search: `?expense=${JSON.stringify(expense)}` }}
+				>
 					<Edit />
 				</IconButton>
 				<IconButton clickHandler={props.showDeleteWarningHandler} expenseId={props.id}>
