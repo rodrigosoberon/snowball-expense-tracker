@@ -11,7 +11,12 @@ import Button from '../../shared/components/FormElements/Button'
 const MonthlyExpenses = () => {
 	const [loadedExpenses, setLoadedExpenses] = useState()
 	const [showConfirmModal, setShowConfirmModal] = useState(false)
-	const [expenseSelected, setExpenseSelected] = useState()
+	const [expenseSelected, setExpenseSelected] = useState({
+		id: '',
+		date: '',
+		description: '',
+		amount: 0
+	})
 	const { isLoading, error, sendRequest, clearError } = useHttpClient()
 	const auth = useContext(AuthContext)
 
@@ -28,7 +33,7 @@ const MonthlyExpenses = () => {
 	}, [sendRequest, auth])
 
 	const showDeleteWarningHandler = event => {
-		setExpenseSelected(event.currentTarget.id)
+		setExpenseSelected(loadedExpenses.find(expense => expense.id === event.currentTarget.id))
 		setShowConfirmModal(true)
 	}
 
@@ -38,16 +43,21 @@ const MonthlyExpenses = () => {
 
 	const expenseDeleteHandler = () => {
 		setLoadedExpenses(prevExpenses =>
-			prevExpenses.filter(expense => expense.id !== expenseSelected)
+			prevExpenses.filter(expense => expense.id !== expenseSelected.id)
 		)
 	}
 
 	const confirmDeleteHanlder = async () => {
 		setShowConfirmModal(false)
 		try {
-			await sendRequest(`http://localhost:5000/api/expenses/${expenseSelected}`, 'DELETE', null, {
-				Authorization: 'Bearer ' + auth.token
-			})
+			await sendRequest(
+				`http://localhost:5000/api/expenses/${expenseSelected.id}`,
+				'DELETE',
+				null,
+				{
+					Authorization: 'Bearer ' + auth.token
+				}
+			)
 			expenseDeleteHandler()
 		} catch (err) {}
 	}
@@ -70,7 +80,10 @@ const MonthlyExpenses = () => {
 					</>
 				}
 			>
-				<p>Do you want to delete the expense?</p>
+				<p>Do you want to delete this expense?</p>
+				<p>{`${new Date(expenseSelected.timestamp).toLocaleDateString()} ${
+					expenseSelected.description
+				} $${expenseSelected.amount}`}</p>
 			</Modal>
 			{isLoading && <LoadingSpinner asOverlay />}
 			{!isLoading && loadedExpenses && (
