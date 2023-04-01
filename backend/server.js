@@ -27,6 +27,9 @@ app.use((req, res, next) => {
 // -------------------------------- ROUTES -------------------------------//
 app.use('/api/users', usersRoute)
 app.use('/api/expenses', expensesRoute)
+app.get('/', (req, res, next) => {
+	res.json({ message: 'Server is working' })
+})
 app.use((req, res, next) => {
 	throw new HttpError(`Could not find route ${req.originalUrl} with method ${req.method}`, 404)
 })
