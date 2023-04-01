@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ff82c078ded481edeeb415b09d76743b",
+    "revision": "2e9c937ab7711b8b138f97ba049e4083",
     "url": "/snowball-expense-tracker/index.html"
   },
   {
-    "revision": "22473f4337470f4b91fd",
+    "revision": "b41514cbbc7fed6001f9",
     "url": "/snowball-expense-tracker/static/css/main.9663ae01.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/snowball-expense-tracker/static/js/2.62f79bd5.chunk.js"
   },
   {
-    "revision": "22473f4337470f4b91fd",
-    "url": "/snowball-expense-tracker/static/js/main.e79a8e33.chunk.js"
+    "revision": "b41514cbbc7fed6001f9",
+    "url": "/snowball-expense-tracker/static/js/main.97bed346.chunk.js"
   },
   {
     "revision": "2c929bcdf7aca195479e",

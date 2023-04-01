@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/snowball-expense-tracker/static/css/main.9663ae01.chunk.css",
-    "main.js": "/snowball-expense-tracker/static/js/main.e79a8e33.chunk.js",
-    "main.js.map": "/snowball-expense-tracker/static/js/main.e79a8e33.chunk.js.map",
+    "main.js": "/snowball-expense-tracker/static/js/main.97bed346.chunk.js",
+    "main.js.map": "/snowball-expense-tracker/static/js/main.97bed346.chunk.js.map",
     "runtime-main.js": "/snowball-expense-tracker/static/js/runtime-main.bf63523d.js",
     "runtime-main.js.map": "/snowball-expense-tracker/static/js/runtime-main.bf63523d.js.map",
     "static/js/2.62f79bd5.chunk.js": "/snowball-expense-tracker/static/js/2.62f79bd5.chunk.js",
     "static/js/2.62f79bd5.chunk.js.map": "/snowball-expense-tracker/static/js/2.62f79bd5.chunk.js.map",
     "index.html": "/snowball-expense-tracker/index.html",
-    "precache-manifest.f116378ba2b7c1998b5a8ed22c962a03.js": "/snowball-expense-tracker/precache-manifest.f116378ba2b7c1998b5a8ed22c962a03.js",
+    "precache-manifest.b8956ad1d34939b234fe5874d4fcd0b0.js": "/snowball-expense-tracker/precache-manifest.b8956ad1d34939b234fe5874d4fcd0b0.js",
     "service-worker.js": "/snowball-expense-tracker/service-worker.js",
     "static/css/main.9663ae01.chunk.css.map": "/snowball-expense-tracker/static/css/main.9663ae01.chunk.css.map",
     "static/media/edit.8c7b7489.svg": "/snowball-expense-tracker/static/media/edit.8c7b7489.svg",
@@ -19,6 +19,6 @@
     "static/js/runtime-main.bf63523d.js",
     "static/js/2.62f79bd5.chunk.js",
     "static/css/main.9663ae01.chunk.css",
-    "static/js/main.e79a8e33.chunk.js"
+    "static/js/main.97bed346.chunk.js"
   ]
 }
