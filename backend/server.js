@@ -14,13 +14,13 @@ app.use(express.urlencoded({ extended: true }))
 
 // ------------------------------ CORS SETUP -----------------------------//
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*')
-  res.setHeader(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, Authorization'
-  )
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
-  next()
+	res.setHeader('Access-Control-Allow-Origin', '*')
+	res.setHeader(
+		'Access-Control-Allow-Headers',
+		'Origin, X-Requested-With, Content-Type, Accept, Authorization'
+	)
+	res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE')
+	next()
 })
 // ------------------------------ CORS SETUP -----------------------------//
 
@@ -28,16 +28,19 @@ app.use((req, res, next) => {
 app.use('/api/users', usersRoute)
 app.use('/api/expenses', expensesRoute)
 app.use((req, res, next) => {
-  throw new HttpError('Could not find this route.', 404)
+	throw new HttpError(`Could not find route ${req.originalUrl} with method ${req.method}`, 404)
 })
 // -------------------------------- ROUTES -------------------------------//
 
 app.use((error, req, res, next) => {
-  if (res.headerSent) {
-    return next(error)
-  }
-  res.status(error.code || 500)
-  res.json({ message: error.message || 'Unknown error occurred!' })
+	if (res.headerSent) {
+		return next(error)
+	}
+	res.status(error.code || 500)
+	res.json({ message: error.message || 'Unknown error occurred!' })
 })
 
-mongoose.connect(process.env.MONGO_URL).then(() => app.listen(process.env.PORT)).catch(err => console.log(err))
+mongoose
+	.connect(process.env.MONGO_URL)
+	.then(() => app.listen(process.env.PORT))
+	.catch(err => console.log(err))
