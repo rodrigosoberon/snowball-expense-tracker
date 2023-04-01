@@ -1,8 +1,8 @@
 import React from 'react'
 
 import IconButton from './IconButton'
-import { ReactComponent as Trash } from '../../shared/icons/trash.svg'
-import { ReactComponent as Edit } from '../../shared/icons/edit.svg'
+import { ReactComponent as Trash } from '../../shared/images/trash.svg'
+import { ReactComponent as Edit } from '../../shared/images/edit.svg'
 
 const ExpenseRow = props => {
 	const expense = {

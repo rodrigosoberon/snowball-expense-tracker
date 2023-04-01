@@ -1,0 +1,9 @@
+.welcome {
+	padding-top: 2em;
+	text-align: center;
+}
+
+.welcome .title {
+	font-size: 3rem;
+	color: #ff6b6b;
+}

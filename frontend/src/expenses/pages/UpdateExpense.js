@@ -58,7 +58,7 @@ const UpdateExpense = () => {
 		event.preventDefault()
 		try {
 			await sendRequest(
-				`http://192.168.1.3:5000/api/expenses/${expenseId}`,
+				`https://snowball-expense-tracker.onrender.com/api/expenses/${expenseId}`,
 				'PATCH',
 				JSON.stringify({
 					description: formState.inputs.description.value,

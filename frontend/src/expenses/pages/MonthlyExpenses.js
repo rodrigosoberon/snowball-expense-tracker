@@ -24,7 +24,7 @@ const MonthlyExpenses = () => {
 		const fetchExpenses = async () => {
 			try {
 				const responseData = await sendRequest(
-					'http://192.168.1.3:5000/api/expenses',
+					'https://snowball-expense-tracker.onrender.com/api/expenses',
 					'GET',
 					null,
 					{
@@ -56,7 +56,7 @@ const MonthlyExpenses = () => {
 		setShowConfirmModal(false)
 		try {
 			await sendRequest(
-				`http://192.168.1.3:5000/api/expenses/${expenseSelected.id}`,
+				`https://snowball-expense-tracker.onrender.com/api/expenses/${expenseSelected.id}`,
 				'DELETE',
 				null,
 				{

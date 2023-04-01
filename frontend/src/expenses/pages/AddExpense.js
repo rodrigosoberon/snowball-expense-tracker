@@ -35,7 +35,7 @@ const AddExpense = () => {
 		event.preventDefault()
 		try {
 			await sendRequest(
-				'http://192.168.1.3:5000/api/expenses',
+				'https://snowball-expense-tracker.onrender.com/api/expenses',
 				'POST',
 				JSON.stringify({
 					description: formState.inputs.description.value,
@@ -58,6 +58,7 @@ const AddExpense = () => {
 				{isLoading && <LoadingSpinner asOverlay />}
 				<Input
 					id='description'
+					placeholder='Pizza'
 					element='input'
 					type='text'
 					label='Description'
@@ -67,6 +68,7 @@ const AddExpense = () => {
 				/>
 				<Input
 					id='category'
+					placeholder='Food'
 					element='input'
 					type='text'
 					label='Category'
@@ -76,6 +78,7 @@ const AddExpense = () => {
 				/>
 				<Input
 					id='amount'
+					placeholder='12.70'
 					element='input'
 					type='number'
 					label='Amount'

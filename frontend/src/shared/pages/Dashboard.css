@@ -1,0 +1,9 @@
+.dashboard {
+	margin: 2em;
+	text-align: center;
+}
+
+.dashboard img {
+	max-width: 100%;
+	margin: 1em 0;
+}

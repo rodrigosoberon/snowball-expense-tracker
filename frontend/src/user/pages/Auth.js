@@ -64,7 +64,7 @@ const Auth = () => {
 		if (isLoginMode) {
 			try {
 				const responseData = await sendRequest(
-					'http://192.168.1.3:5000/api/users/login',
+					'https://snowball-expense-tracker.onrender.com/api/users/login',
 					'POST',
 					JSON.stringify({
 						email: formState.inputs.email.value,
@@ -78,12 +78,8 @@ const Auth = () => {
 			} catch (err) {}
 		} else {
 			try {
-				// const formData = new FormData()
-				// formData.append('email', formState.inputs.email.value)
-				// formData.append('name', formState.inputs.name.value)
-				// formData.append('password', formState.inputs.password.value)
 				const responseData = await sendRequest(
-					'http://192.168.1.3:5000/api/users/signup',
+					'https://snowball-expense-tracker.onrender.com/api/users/signup',
 					'POST',
 					JSON.stringify({
 						name: formState.inputs.name.value,

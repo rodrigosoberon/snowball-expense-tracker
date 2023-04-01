@@ -1,12 +1,13 @@
 import React from 'react'
 
 import ExpenseRow from './ExpenseRow'
+import NoExpenses from './NoExpenses'
 import './ExpensesTable.css'
 
 const ExpensesTable = props => {
 	let total = 0
 	if (props.expenses.length === 0) {
-		return <p>No expenses found</p>
+		return <NoExpenses />
 	} else {
 		props.expenses.forEach(element => {
 			total += element.amount
