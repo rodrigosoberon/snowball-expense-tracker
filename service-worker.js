@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/snowball-expense-tracker/precache-manifest.9da5981db6ef36b6d2b6826867ea2c57.js"
+  "/snowball-expense-tracker/precache-manifest.d6cf456ad4b9ab8bdde6e0e153e70fcd.js"
 );
 
 self.addEventListener('message', (event) => {
