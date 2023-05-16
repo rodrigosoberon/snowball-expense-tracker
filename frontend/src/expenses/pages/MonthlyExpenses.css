@@ -1,0 +1,33 @@
+.floating {
+	position: fixed;
+	width: 3em;
+	height: 3em;
+	bottom: 3em;
+	right: 3em;
+	background-color: #ffe66d;
+	border-radius: 50px;
+	box-shadow: 2px 2px 3px #999;
+}
+
+.floating a {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.floating a svg {
+	width: 2em;
+	height: 2em;
+}
+
+.floating:hover {
+	background-color: #4ecdc4;
+	box-shadow: inherit;
+	translate: 2px 2px;
+}
+
+.floating:hover a svg {
+	color: #ff6b6b;
+}

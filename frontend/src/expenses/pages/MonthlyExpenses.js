@@ -7,6 +7,10 @@ import ErrorModal from '../../shared/components/UIElements/ErrorModal'
 import ExpensesTable from '../components/ExpensesTable'
 import Modal from '../../shared/components/UIElements/Modal'
 import Button from '../../shared/components/FormElements/Button'
+import './MonthlyExpenses.css'
+import IconButton from '../components/IconButton'
+
+import { ReactComponent as Plus } from '../../shared/images/plus.svg'
 
 const MonthlyExpenses = () => {
 	const [loadedExpenses, setLoadedExpenses] = useState()
@@ -98,6 +102,11 @@ const MonthlyExpenses = () => {
 					curr={'$ '}
 				/>
 			)}
+			<div className='floating'>
+				<IconButton to='/add'>
+					<Plus />
+				</IconButton>
+			</div>
 		</>
 	)
 }
