@@ -1,24 +1,25 @@
 {
   "files": {
-    "main.css": "/snowball-expense-tracker/static/css/main.9663ae01.chunk.css",
-    "main.js": "/snowball-expense-tracker/static/js/main.3ba840c7.chunk.js",
-    "main.js.map": "/snowball-expense-tracker/static/js/main.3ba840c7.chunk.js.map",
+    "main.css": "/snowball-expense-tracker/static/css/main.339bc2d0.chunk.css",
+    "main.js": "/snowball-expense-tracker/static/js/main.3b4ddfa6.chunk.js",
+    "main.js.map": "/snowball-expense-tracker/static/js/main.3b4ddfa6.chunk.js.map",
     "runtime-main.js": "/snowball-expense-tracker/static/js/runtime-main.bf63523d.js",
     "runtime-main.js.map": "/snowball-expense-tracker/static/js/runtime-main.bf63523d.js.map",
-    "static/js/2.4ec3637c.chunk.js": "/snowball-expense-tracker/static/js/2.4ec3637c.chunk.js",
-    "static/js/2.4ec3637c.chunk.js.map": "/snowball-expense-tracker/static/js/2.4ec3637c.chunk.js.map",
+    "static/js/2.3f5ec077.chunk.js": "/snowball-expense-tracker/static/js/2.3f5ec077.chunk.js",
+    "static/js/2.3f5ec077.chunk.js.map": "/snowball-expense-tracker/static/js/2.3f5ec077.chunk.js.map",
     "index.html": "/snowball-expense-tracker/index.html",
-    "precache-manifest.d6cf456ad4b9ab8bdde6e0e153e70fcd.js": "/snowball-expense-tracker/precache-manifest.d6cf456ad4b9ab8bdde6e0e153e70fcd.js",
+    "precache-manifest.1e4b777810cc6e4c64081e2a1daf47ed.js": "/snowball-expense-tracker/precache-manifest.1e4b777810cc6e4c64081e2a1daf47ed.js",
     "service-worker.js": "/snowball-expense-tracker/service-worker.js",
-    "static/css/main.9663ae01.chunk.css.map": "/snowball-expense-tracker/static/css/main.9663ae01.chunk.css.map",
+    "static/css/main.339bc2d0.chunk.css.map": "/snowball-expense-tracker/static/css/main.339bc2d0.chunk.css.map",
     "static/media/edit.8c7b7489.svg": "/snowball-expense-tracker/static/media/edit.8c7b7489.svg",
+    "static/media/plus.5cf7ec20.svg": "/snowball-expense-tracker/static/media/plus.5cf7ec20.svg",
     "static/media/trash.8db4e757.svg": "/snowball-expense-tracker/static/media/trash.8db4e757.svg",
     "static/media/under-construction.png": "/snowball-expense-tracker/static/media/under-construction.f928e27b.png"
   },
   "entrypoints": [
     "static/js/runtime-main.bf63523d.js",
-    "static/js/2.4ec3637c.chunk.js",
-    "static/css/main.9663ae01.chunk.css",
-    "static/js/main.3ba840c7.chunk.js"
+    "static/js/2.3f5ec077.chunk.js",
+    "static/css/main.339bc2d0.chunk.css",
+    "static/js/main.3b4ddfa6.chunk.js"
   ]
 }
