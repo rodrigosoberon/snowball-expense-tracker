@@ -141,6 +141,18 @@ const Auth = () => {
 					SWITCH TO {isLoginMode ? 'SIGNUP' : 'LOGIN'}
 				</Button>
 			</Card>
+			<div className='note info'>
+				<p>
+					<strong>Note: </strong> You can use the demo user rather than signing up, with{' '}
+					<strong>email:</strong> demouser@email.com and <strong>password:</strong> demouser
+				</p>
+			</div>
+			<div className='note'>
+				<p>
+					<strong>Note: </strong>Backend server could be in <u>sleep mode</u>, so it may take a
+					couple of minutes (2~3) to waking it up after first login/sign-up attempt
+				</p>
+			</div>
 		</>
 	)
 }
